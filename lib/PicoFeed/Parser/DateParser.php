@@ -4,7 +4,6 @@ namespace PicoFeed\Parser;
 
 use DateTime;
 use DateTimeZone;
-use PicoFeed\Base;
 
 /**
  * Date Parser.
@@ -12,7 +11,7 @@ use PicoFeed\Base;
  * @package PicoFeed\Parser
  * @author  Frederic Guillot
  */
-class DateParser extends Base
+class DateParser
 {
     /**
      * Timezone used to parse feed dates.
@@ -54,6 +53,16 @@ class DateParser extends Base
         'd/m/Y' => 10,
         'm/d/Y' => 10,
     );
+
+    /**
+     * DateParser constructor.
+     *
+     * @param string $timezone
+     */
+    public function __construct($timezone = 'UTC')
+    {
+        $this->timezone = $timezone;
+    }
 
     /**
      * Try to parse all date format for broken feeds.
@@ -122,6 +131,6 @@ class DateParser extends Base
      */
     public function getTimeZone()
     {
-        return new DateTimeZone($this->config->getTimezone() ?: $this->timezone);
+        return new DateTimeZone($this->timezone);
     }
 }

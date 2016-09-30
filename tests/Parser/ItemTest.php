@@ -24,8 +24,7 @@ class ItemTest extends PHPUnit_Framework_TestCase
 
     public function testGetTag()
     {
-        $parser = new Rss20(file_get_contents('tests/fixtures/podbean.xml'));
-        $feed = $parser->execute();
+        $feed = FeedParser::getParser(FeedParser::RSS20)->execute(file_get_contents('tests/fixtures/podbean.xml'));
         $this->assertEquals(array('http://aroundthebloc.podbean.com/e/s03e11-finding-nemo-rocco/'), $feed->items[0]->getTag('guid'));
         $this->assertEquals(array('false'),  $feed->items[0]->getTag('guid', 'isPermaLink'));
         $this->assertEquals(array('http://aroundthebloc.podbean.com/mf/web/28bcnk/ATBLogo-BlackBackground.png'),  $feed->items[0]->getTag('media:content', 'url'));

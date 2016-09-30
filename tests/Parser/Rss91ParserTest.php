@@ -6,10 +6,25 @@ use PHPUnit_Framework_TestCase;
 
 class Rss91ParserTest extends PHPUnit_Framework_TestCase
 {
+    /**
+     * @var Rss91Parser
+     */
+    private $parser;
+
+    public function setUp()
+    {
+        $this->parser = FeedParser::getParser(FeedParser::RSS91);
+    }
+
+    public function testBadInput()
+    {
+        $this->setExpectedException('PicoFeed\Parser\MalformedXmlException');
+        $this->parser->execute('foobar');
+    }
+
     public function testFormatOk()
     {
-        $parser = new Rss91(file_get_contents('tests/fixtures/rss_0.91.xml'));
-        $feed = $parser->execute();
+        $feed = $this->parser->execute(file_get_contents('tests/fixtures/rss_0.91.xml'));
 
         $this->assertNotFalse($feed);
         $this->assertNotEmpty($feed->items);

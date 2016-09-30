@@ -4,6 +4,8 @@ namespace PicoFeed\Serialization;
 
 use DOMDocument;
 use DOMElement;
+use PicoFeed\Subscription\Subscription;
+use PicoFeed\Subscription\SubscriptionList;
 
 /**
  * Class SubscriptionListBuilder

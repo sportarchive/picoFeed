@@ -4,6 +4,7 @@ namespace PicoFeed\Serialization;
 
 use PicoFeed\Parser\MalformedXmlException;
 use PicoFeed\Parser\XmlParser;
+use PicoFeed\Subscription\SubscriptionList;
 use SimpleXMLElement;
 
 /**

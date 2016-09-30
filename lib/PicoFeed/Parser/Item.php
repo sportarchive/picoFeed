@@ -1,6 +1,7 @@
 <?php
 
 namespace PicoFeed\Parser;
+use PicoFeed\Helper\LanguageHelper;
 
 /**
  * Feed Item.
@@ -10,22 +11,6 @@ namespace PicoFeed\Parser;
  */
 class Item
 {
-    /**
-     * List of known RTL languages.
-     *
-     * @var string[]
-     */
-    public $rtl = array(
-        'ar',  // Arabic (ar-**)
-        'fa',  // Farsi (fa-**)
-        'ur',  // Urdu (ur-**)
-        'ps',  // Pashtu (ps-**)
-        'syr', // Syriac (syr-**)
-        'dv',  // Divehi (dv-**)
-        'he',  // Hebrew (he-**)
-        'yi',  // Yiddish (yi-**)
-    );
-
     /**
      * Item id.
      *
@@ -322,7 +307,7 @@ class Item
      */
     public function isRTL()
     {
-        return Parser::isLanguageRTL($this->language);
+        return LanguageHelper::isLanguageRTL($this->language);
     }
 
     /**

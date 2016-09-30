@@ -637,29 +637,6 @@ abstract class Client
     }
 
     /**
-     * Set config object.
-     *
-     * @param \PicoFeed\Config\Config $config Config instance
-     *
-     * @return \PicoFeed\Client\Client
-     */
-    public function setConfig(Config $config)
-    {
-        if ($config !== null) {
-            $this->setTimeout($config->getClientTimeout());
-            $this->setUserAgent($config->getClientUserAgent());
-            $this->setMaxRedirections($config->getMaxRedirections());
-            $this->setMaxBodySize($config->getMaxBodySize());
-            $this->setProxyHostname($config->getProxyHostname());
-            $this->setProxyPort($config->getProxyPort());
-            $this->setProxyUsername($config->getProxyUsername());
-            $this->setProxyPassword($config->getProxyPassword());
-        }
-
-        return $this;
-    }
-
-    /**
      * Return true if the HTTP status code is a redirection
      *
      * @access protected

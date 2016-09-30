@@ -3,6 +3,8 @@
 namespace PicoFeed\Serialization;
 
 use PHPUnit_Framework_TestCase;
+use PicoFeed\Subscription\Subscription;
+use PicoFeed\Subscription\SubscriptionList;
 
 class SubscriptionListBuilderTest extends PHPUnit_Framework_TestCase
 {

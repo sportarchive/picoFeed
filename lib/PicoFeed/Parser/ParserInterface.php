@@ -13,6 +13,16 @@ use SimpleXMLElement;
 interface ParserInterface
 {
     /**
+     * Parse a feed
+     *
+     * @param  string $data
+     * @param  string $feedUrl
+     * @param  string $httpEncoding
+     * @return Feed
+     */
+    public function execute($data, $feedUrl = '', $httpEncoding = '');
+
+    /**
      * Find the feed url.
      *
      * @param SimpleXMLElement      $xml  Feed xml

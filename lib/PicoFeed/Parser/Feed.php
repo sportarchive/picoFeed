@@ -1,6 +1,7 @@
 <?php
 
 namespace PicoFeed\Parser;
+use PicoFeed\Helper\LanguageHelper;
 
 /**
  * Feed.
@@ -13,7 +14,7 @@ class Feed
     /**
      * Feed items.
      *
-     * @var array
+     * @var Item[]
      */
     public $items = array();
 
@@ -190,7 +191,7 @@ class Feed
      */
     public function isRTL()
     {
-        return Parser::isLanguageRTL($this->language);
+        return LanguageHelper::isLanguageRTL($this->language);
     }
 
     /**

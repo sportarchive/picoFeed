@@ -22,7 +22,7 @@ class ContentFilterProcessor extends Base implements ItemProcessorInterface
      * @access public
      * @param  Feed $feed
      * @param  Item $item
-     * @return bool
+     * @return bool|void
      */
     public function execute(Feed $feed, Item $item)
     {

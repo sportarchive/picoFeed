@@ -2,6 +2,7 @@
 
 namespace PicoFeed\Serialization;
 
+use PicoFeed\Subscription\Subscription;
 use SimpleXMLElement;
 
 /**

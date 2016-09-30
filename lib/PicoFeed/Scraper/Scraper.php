@@ -6,7 +6,7 @@ use PicoFeed\Base;
 use PicoFeed\Client\Client;
 use PicoFeed\Client\ClientException;
 use PicoFeed\Client\Url;
-use PicoFeed\Encoding\Encoding;
+use PicoFeed\Encoding\EncodingHelper;
 use PicoFeed\Filter\Filter;
 use PicoFeed\Logging\Logger;
 use PicoFeed\Parser\XmlParser;
@@ -259,7 +259,7 @@ class Scraper extends Base
     {
         $html_encoding = XmlParser::getEncodingFromMetaTag($this->html);
 
-        $this->html = Encoding::convert($this->html, $html_encoding ?: $this->encoding);
+        $this->html = EncodingHelper::convert($this->html, $html_encoding ?: $this->encoding);
         $this->html = Filter::stripHeadTags($this->html);
 
         Logger::setMessage(get_called_class().': HTTP Encoding "'.$this->encoding.'" ; HTML Encoding "'.$html_encoding.'"');
