@@ -1,7 +1,7 @@
 {
-    "name": "fguillot/picofeed",
-    "description": "Modern library to handle RSS/Atom feeds",
-    "homepage": "https://github.com/fguillot/picoFeed",
+    "name": "sportarchive/picofeed",
+    "description": "Modern library to handle RSS/Atom feeds, SportArchive fork",
+    "homepage": "https://github.com/sportarchive/picoFeed",
     "type": "library",
     "license": "MIT",
     "authors": [
