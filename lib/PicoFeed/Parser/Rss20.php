@@ -161,7 +161,8 @@ class Rss20 extends Parser
      */
     public function findItemPublishedDate(SimpleXMLElement $entry, Item $item, Feed $feed)
     {
-        $date = XmlParser::getXPathResult($entry, 'pubDate');
+        $date = XmlParser::getXPathResult($entry, 'pubDate')
+            ?: XmlParser::getXPathResult($entry, 'dc:date', $this->namespaces);
 
         $item->setPublishedDate(!empty($date) ? $this->getDateParser()->getDateTime(XmlParser::getValue($date)) : null);
     }
