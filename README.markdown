@@ -64,3 +64,4 @@ Documentation
 - [Exceptions](docs/exceptions.markdown)
 - [Debugging](docs/debugging.markdown)
 - [Configuration](docs/config.markdown)
+
