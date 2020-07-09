@@ -240,16 +240,18 @@ class Curl extends Client
         curl_setopt($ch, CURLOPT_ENCODING, '');
         curl_setopt($ch, CURLOPT_COOKIEJAR, 'php://memory');
         curl_setopt($ch, CURLOPT_COOKIEFILE, 'php://memory');
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 
         // Disable SSLv3 by enforcing TLSv1.x for curl >= 7.34.0 and < 7.39.0.
         // Versions prior to 7.34 and at least when compiled against openssl
         // interpret this parameter as "limit to TLSv1.0" which fails for sites
         // which enforce TLS 1.1+.
         // Starting with curl 7.39.0 SSLv3 is disabled by default.
-        $version = curl_version();
-        if ($version['version_number'] >= 467456 && $version['version_number'] < 468736) {
-            curl_setopt($ch, CURLOPT_SSLVERSION, 1);
-        }
+        // $version = curl_version();
+        // if ($version['version_number'] >= 467456 && $version['version_number'] < 468736) {
+        //     curl_setopt($ch, CURLOPT_SSLVERSION, 1);
+        // }
 
         $ch = $this->prepareDownloadMode($ch);
         $ch = $this->prepareProxyContext($ch);
